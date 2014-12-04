@@ -1,8 +1,11 @@
+import gui.ScreenCalendar;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		ScreenCalendar frame = new ScreenCalendar();
+		frame.setVisible(true);
 
 	}
 
