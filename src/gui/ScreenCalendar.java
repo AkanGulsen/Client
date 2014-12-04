@@ -13,12 +13,13 @@ public class ScreenCalendar extends JFrame {
 	public final String LOGIN = "login";
 	public final String WEEKVIEW = "weekview";
 	public final String DAYVIEW = "dayview";
-	
+
 	private JPanel contentPane;
 	private final Login login = new Login();
-	private final WeeklyView WeekView = new WeeklyView();
-	private final DailyView DayView = new DailyView();
+	private final WeekView WeekView = new WeekView();
+	private final DayView DayView = new DayView();
 	CardLayout c;
+
 	/**
 	 * Create the frame.
 	 */
@@ -31,7 +32,6 @@ public class ScreenCalendar extends JFrame {
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		this.setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
-		
 
 		// Adding panels to contentpane
 		contentPane.add(login, "login");
@@ -44,13 +44,16 @@ public class ScreenCalendar extends JFrame {
 	public Login getLogin() {
 		return login;
 	}
-	public WeeklyView getWeekView(){
+
+	public WeekView getWeekView() {
 		return WeekView;
 	}
-	public DailyView getDayView(){
+
+	public DayView getDayView() {
 		return DayView;
 	}
+
 	public void show(String card) {
-		c.show(getContentPane(),  card);
+		c.show(getContentPane(), card);
 	}
 }

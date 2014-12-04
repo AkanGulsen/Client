@@ -20,7 +20,7 @@ import javax.swing.JMenuItem;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 
-public class WeeklyView extends JPanel {
+public class WeekView extends JPanel {
 	private JTable table;
 	private JTable table_1;
 	private String Week;
@@ -28,7 +28,7 @@ public class WeeklyView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public WeeklyView() {
+	public WeekView() {
 		setSize(new Dimension(1366, 768));
 
 		JPanel QOTD_container = new JPanel();
@@ -51,14 +51,14 @@ public class WeeklyView extends JPanel {
 		JButton btnNewButton = new JButton("Day View");
 		btnNewButton
 				.setIcon(new ImageIcon(
-						WeeklyView.class
+						WeekView.class
 								.getResource("/com/sun/java/swing/plaf/windows/icons/DetailsView.gif")));
 		Menu_container.add(btnNewButton);
 
 		JButton btnPrevious = new JButton("Previous");
 		btnPrevious
 				.setIcon(new ImageIcon(
-						WeeklyView.class
+						WeekView.class
 								.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed.gif")));
 		Menu_container.add(btnPrevious);
 
@@ -68,14 +68,14 @@ public class WeeklyView extends JPanel {
 		JButton btnNext = new JButton("Next");
 		btnNext.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 		btnNext.setIcon(new ImageIcon(
-				WeeklyView.class
+				WeekView.class
 						.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed-rtl.gif")));
 		Menu_container.add(btnNext);
 
 		JPanel Day_container = new JPanel();
 		add(Day_container);
 
-		//Week skal sættes til nuværende uge
+		// Week skal sættes til nuværende uge
 		JLabel WeekNumber = new JLabel(Week);
 		Day_container.add(WeekNumber);
 
