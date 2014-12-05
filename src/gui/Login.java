@@ -32,7 +32,7 @@ public class Login extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Login() {
+	public LogIn() {
 		setSize(new Dimension(1366, 768));
 		setForeground(new Color(255, 255, 255));
 		setBackground(new Color(105, 105, 105));
@@ -65,7 +65,8 @@ public class Login extends JPanel {
 						new Color(0, 0, 0), new Color(255, 255, 255),
 						new Color(0, 0, 0))));
 		btnLogIn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent l) {
+				
 			}
 		});
 		textFieldUsername.setOpaque(false);
@@ -93,7 +94,7 @@ public class Login extends JPanel {
 		btnForgotLogIn.setBounds(485, 502, 403, 41);
 		add(btnForgotLogIn);
 
-		lblCBSlogo.setIcon(new ImageIcon(Login.class
+		lblCBSlogo.setIcon(new ImageIcon(LogIn.class
 				.getResource("/Images/CBSLogo3.png")));
 		lblCBSlogo.setBounds(10, 698, 250, 59);
 		add(lblCBSlogo);
@@ -109,7 +110,7 @@ public class Login extends JPanel {
 		add(textFieldPassword);
 		
 		lblBackground.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBackground.setIcon(new ImageIcon(Login.class
+		lblBackground.setIcon(new ImageIcon(LogIn.class
 				.getResource("/Images/MetalBackground.jpg")));
 		lblBackground.setSize(new Dimension(1366, 768));
 		lblBackground.setBounds(0, 0, 1366, 768);

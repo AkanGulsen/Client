@@ -3,34 +3,31 @@ package gui;
 import javax.swing.JPanel;
 import java.awt.Dimension;
 import javax.swing.JLabel;
-import java.awt.Rectangle;
 import java.awt.ComponentOrientation;
 import java.awt.Cursor;
 import javax.swing.JTable;
 import javax.swing.JScrollBar;
 import javax.swing.JButton;
 import java.awt.Component;
-import javax.swing.JComboBox;
-import javax.swing.JSlider;
-import javax.swing.JList;
-import javax.swing.JPopupMenu;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.JMenuItem;
 import javax.swing.ImageIcon;
-import javax.swing.JCheckBox;
 
+@SuppressWarnings("serial")
 public class WeeklyView extends JPanel {
 	private JTable table;
 	private JTable table_1;
+
+	// Week of QOTD skal sættes korrekt
 	private String Week;
+	private String QOTD;
 
 	/**
 	 * Create the panel.
 	 */
 	public WeeklyView() {
 		setSize(new Dimension(1366, 768));
-
+		
+		// QOTD contianer and with QOTD labels
 		JPanel QOTD_container = new JPanel();
 		QOTD_container.setPreferredSize(new Dimension(1366, 25));
 		add(QOTD_container);
@@ -38,11 +35,12 @@ public class WeeklyView extends JPanel {
 		JLabel lblQOTDHeadline = new JLabel("Quote Of The Day:");
 		QOTD_container.add(lblQOTDHeadline);
 
-		JLabel lblQOTD = new JLabel("\"Akan er en hund - Mads Vive\"");
+		JLabel lblQOTD = new JLabel(QOTD);
 		lblQOTD.setAlignmentX(Component.CENTER_ALIGNMENT);
 		QOTD_container.add(lblQOTD);
 		lblQOTD.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
 
+		// Menu container inlcuding next, previous & dayview buttons
 		JPanel Menu_container = new JPanel();
 		Menu_container.setMinimumSize(new Dimension(1366, 100));
 		Menu_container.setSize(new Dimension(1366, 100));
@@ -72,10 +70,11 @@ public class WeeklyView extends JPanel {
 						.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed-rtl.gif")));
 		Menu_container.add(btnNext);
 
+		// day contianer indeholder dagene i kalenderen
 		JPanel Day_container = new JPanel();
 		add(Day_container);
 
-		//Week skal sættes til nuværende uge
+		// Week skal sættes til nuværende uge
 		JLabel WeekNumber = new JLabel(Week);
 		Day_container.add(WeekNumber);
 
@@ -97,43 +96,9 @@ public class WeeklyView extends JPanel {
 				JScrollBar scrollBar = new JScrollBar();
 				panel_2.add(scrollBar);
 
-				JPanel panel = new JPanel();
-				Day_container.add(panel);
-
-				JLabel label = new JLabel("Monday 31");
-				label.setSize(new Dimension(1366, 20));
-				panel.add(lblDay);
-
-				table_1 = new JTable();
-				table_1.setRowMargin(2);
-				table_1.setPreferredSize(new Dimension(1366, 0));
-				panel.add(table_1);
-
-				JScrollBar scrollBar_1 = new JScrollBar();
-				panel.add(scrollBar_1);
 			} catch (Exception e) {
 				System.out.println("fejl i loop til oprettelse af dage");
 			}
 		}
-	}
-
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
 	}
 }
