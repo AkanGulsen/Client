@@ -30,16 +30,12 @@ import java.awt.Dimension;
 
 public class Login extends JFrame {
 	
+		private JPasswordField passwordField;
+	
 		private final JLabel lblWelcome = new JLabel("Welcome");
 		private final JLabel lblUsername = new JLabel("Username");
 		private final JLabel lblPassword = new JLabel("Password");
-		private final JButton btnLogIn = new JButton("Log In");
-		private final JButton btnForgotLogIn = new JButton(
-				"Forgot username or password?");
-		private final JTextField textFieldUsername = new JTextField();
-		private final JLabel lblBackground = new JLabel("");
-		private final JPasswordField textFieldPassword = new JPasswordField();
-		private JPasswordField passwordField;
+		private JTextField UsernameInput;
 
 
 		/**
@@ -48,13 +44,13 @@ public class Login extends JFrame {
 
 		public Login() {
 			setMaximumSize(new Dimension(2000, 1200));
-			getContentPane().setLayout(null);
 
 			JButton btnLogin = new JButton("Login");
+			btnLogin.setBounds(572, 559, 115, 29);
 			btnLogin.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
-					String username = usernameInput.getText();
+					String username = UsernameInput.getText();
 					@SuppressWarnings("deprecation")
 					String password = passwordField.getText();
 					if (getCalendarDay.login(username, password)) {
@@ -69,39 +65,39 @@ public class Login extends JFrame {
 					}
 				}
 			});
-			btnLogin.setBounds(572, 559, 115, 29);
+			getContentPane().setLayout(null);
 			getContentPane().add(btnLogin);
 
+			passwordField = new JPasswordField();
+			passwordField.setBounds(543, 463, 148, 34);
+			getContentPane().add(passwordField);
+			
+						JLabel lblUsername_1 = new JLabel("Username:");
+						lblUsername_1.setBounds(381, 399, 163, 35);
+						getContentPane().add(lblUsername_1);
+
 			JLabel label = new JLabel("Password:");
-			label.setBounds(354, 406, 146, 34);
+			label.setBounds(381, 463, 141, 34);
 			getContentPane().add(label);
 
-			JLabel lblUsername = new JLabel("Username:");
-			lblUsername.setBounds(344, 350, 156, 35);
-			getContentPane().add(lblUsername);
-
 			JLabel lblNewLabel = new JLabel("Welcome to CBS Calendar!");
+			lblNewLabel.setBounds(449, 148, 296, 64);
 			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 23));
-			lblNewLabel.setBounds(486, 123, 296, 64);
 			getContentPane().add(lblNewLabel);
 
 			JLabel lblNewLabel_1 = new JLabel("Including your own personal events!");
+			lblNewLabel_1.setBounds(393, 211, 392, 48);
 			lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 			lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-			lblNewLabel_1.setBounds(437, 186, 392, 48);
 			getContentPane().add(lblNewLabel_1);
 			
-			passwordField = new JPasswordField();
-			passwordField.setBounds(521, 407, 189, 32);
-			getContentPane().add(passwordField);
-			
-			JTextArea textArea = new JTextArea();
-			textArea.setFont(new Font("Tahoma", Font.PLAIN, 16));
-			textArea.setBounds(521, 350, 189, 31);
-			getContentPane().add(textArea);
+			UsernameInput = new JTextField();
+			UsernameInput.setBounds(545, 400, 186, 32);
+			getContentPane().add(UsernameInput);
+			UsernameInput.setColumns(10);
 
+			setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 
-			
 		}
 
 		public JTextField getTextField() {
