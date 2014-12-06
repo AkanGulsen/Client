@@ -7,16 +7,24 @@ import java.awt.event.ActionListener;
 import shared.*;
 import gui.Login;
 import gui.ScreenCal;
+import gui.ScreenFrame;
 
 
 public class ActionHandlers {
-	private ScreenCal screen;
+	private ScreenFrame screen;
 
 	// private AuthenticateUser au;
 
 	public ActionHandlers() {
-		screen = new ScreenCal();
+		screen = new ScreenFrame();
 		screen.getLogin().addActionListener(new LogInActionListener());
+	}
+	
+	public void run(){
+		
+		ScreenFrame frame = new ScreenFrame();
+		frame.setVisible(true);
+		
 	}
 
 	public class LogInActionListener implements ActionListener {

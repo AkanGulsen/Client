@@ -57,16 +57,16 @@ public class WeeklyView extends JPanel {
 
 		JButton btnNewButton = new JButton("Day View");
 		btnNewButton
-				.setIcon(new ImageIcon(
-						WeeklyView.class
-								.getResource("/com/sun/java/swing/plaf/windows/icons/DetailsView.gif")));
+		.setIcon(new ImageIcon(
+				WeeklyView.class
+				.getResource("/com/sun/java/swing/plaf/windows/icons/DetailsView.gif")));
 		Menu_container.add(btnNewButton);
 
 		JButton btnPrevious = new JButton("Previous");
 		btnPrevious
-				.setIcon(new ImageIcon(
-						WeeklyView.class
-								.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed.gif")));
+		.setIcon(new ImageIcon(
+				WeeklyView.class
+				.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed.gif")));
 		Menu_container.add(btnPrevious);
 
 		JMenuItem mntmNewMenuItem = new JMenuItem(String.valueOf(getCalendarDay.getYear()));
@@ -80,7 +80,7 @@ public class WeeklyView extends JPanel {
 		btnNext.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 		btnNext.setIcon(new ImageIcon(
 				WeeklyView.class
-						.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed-rtl.gif")));
+				.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed-rtl.gif")));
 		Menu_container.add(btnNext);
 
 		table_2 =  new JTable();
