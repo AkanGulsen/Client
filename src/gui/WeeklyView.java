@@ -11,6 +11,10 @@ import javax.swing.JButton;
 import java.awt.Component;
 import javax.swing.JMenuItem;
 import javax.swing.ImageIcon;
+import java.awt.Font;
+import logic.getCalendarDay;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public class WeeklyView extends JPanel {
@@ -20,15 +24,19 @@ public class WeeklyView extends JPanel {
 	// Week of QOTD skal sættes korrekt
 	private String Week;
 	private String QOTD;
+	private JTable table_2;
+	private JTable Event;
 
 	/**
 	 * Create the panel.
 	 */
 	public WeeklyView() {
 		setSize(new Dimension(1366, 768));
-		
+		setLayout(null);
+
 		// QOTD contianer and with QOTD labels
 		JPanel QOTD_container = new JPanel();
+		QOTD_container.setBounds(0, 5, 1366, 45);
 		QOTD_container.setPreferredSize(new Dimension(1366, 25));
 		add(QOTD_container);
 
@@ -42,8 +50,9 @@ public class WeeklyView extends JPanel {
 
 		// Menu container inlcuding next, previous & dayview buttons
 		JPanel Menu_container = new JPanel();
+		Menu_container.setLocation(390, 56);
 		Menu_container.setMinimumSize(new Dimension(1366, 100));
-		Menu_container.setSize(new Dimension(1366, 100));
+		Menu_container.setSize(new Dimension(577, 56));
 		add(Menu_container);
 
 		JButton btnNewButton = new JButton("Day View");
@@ -60,29 +69,37 @@ public class WeeklyView extends JPanel {
 								.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed.gif")));
 		Menu_container.add(btnPrevious);
 
-		JMenuItem mntmNewMenuItem = new JMenuItem("Year");
+		JMenuItem mntmNewMenuItem = new JMenuItem(String.valueOf(getCalendarDay.getYear()));
 		Menu_container.add(mntmNewMenuItem);
 
 		JButton btnNext = new JButton("Next");
+		btnNext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnNext.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 		btnNext.setIcon(new ImageIcon(
 				WeeklyView.class
 						.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed-rtl.gif")));
 		Menu_container.add(btnNext);
 
-		// day contianer indeholder dagene i kalenderen
-		JPanel Day_container = new JPanel();
-		add(Day_container);
+		table_2 =  new JTable();
+		table_2.setBounds(339, 128, 990, 513);
+		add(table_2);
 
-		// Week skal sættes til nuværende uge
-		JLabel WeekNumber = new JLabel(Week);
-		Day_container.add(WeekNumber);
+		Event = new JTable();
+		Event.setBounds(15, 128, 304, 513);
+		add(Event);
+
+		JLabel lblEvents = new JLabel("Events");
+		lblEvents.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblEvents.setBounds(115, 86, 69, 20);
+		add(lblEvents);
 
 		for (int i = 0; i > 7; i++) {
 			try {
 				JPanel panel_2 = new JPanel();
 				panel_2.setSize(new Dimension(1366, 0));
-				Day_container.add(panel_2);
 
 				JLabel lblDay = new JLabel("Sunday 30");
 				lblDay.setSize(new Dimension(1366, 20));

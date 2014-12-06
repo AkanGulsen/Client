@@ -1,18 +1,22 @@
 package logic;
+import 
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import shared.*;
-import gui.ScreenCalendar;
+import gui.Login;
+import gui.ScreenCal;
+
 
 public class ActionHandlers {
-	private ScreenCalendar screen;
+	private ScreenCal screen;
 
 	// private AuthenticateUser au;
 
 	public ActionHandlers() {
-		screen = new ScreenCalendar();
-		screen.getLogIn().addActionListener(new LogInActionListener());
+		screen = new ScreenCal();
+		screen.getLogin().addActionListener(new LogInActionListener());
 	}
 
 	public class LogInActionListener implements ActionListener {
@@ -23,12 +27,12 @@ public class ActionHandlers {
 				// Screen.getLogIn().getTextFieldUsername().getText();
 				// String password =
 				// Screen.getLogIn().getTextFieldPassword().getText();
-				if (l.getSource() == screen.getLogIn().getBtnLogIn()) {
+				if (l.getSource() == screen.getLogin().getBtnLogIn()) {
 					System.out.println("Det virker");
 					try {
 						// if(au.authenticate(userName, password, true) == 0){
 						System.out.println("login succesfull");
-						screen.show(ScreenCalendar.WEEKVIEW);
+						screen.show(Login.WEEKLYVIEW);
 						// }
 					} catch (Exception e1) {
 						System.out.println("Login Unsuccesfull");
