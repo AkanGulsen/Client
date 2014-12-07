@@ -1,5 +1,5 @@
-import logic.ActionHandlers;
-import logic.ConnectToServer;
+import logic.Actionhandler;
+import logic.Connector;
 import gui.ScreenFrame;
 
 public class Main {
@@ -7,13 +7,12 @@ public class Main {
 	public static void main(String[] args) {
 
 
-//		ConnectToServer ClientServerConnect = new ConnectToServer();
-//		ClientServerConnect.ServerConnect();
+		Connector ClientServerConnect = new Connector();
+		ClientServerConnect.ServerConnect();
 		
-		new ActionHandlers().run();
+		new Actionhandler().run();
 		
-		
-		
+			
 	}
 
 }
