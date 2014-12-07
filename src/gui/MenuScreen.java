@@ -28,24 +28,18 @@ public class MenuScreen extends JPanel {
 		add(label);
 		
 		JLabel label_1 = new JLabel("Calendar");
-		label_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		label_1.setFont(new Font("Tahoma", Font.PLAIN, 2));
 		label_1.setBounds(117, 150, 115, 41);
 		add(label_1);
 		
-		final JButton btnWV = new JButton("Week View");
-		btnWV.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent I) {
-				btnWV.addActionListener(l);
-				
-				
-			}
-		});
-		btnWV.setBounds(94, 195, 138, 41);
+		JButton btnWV = new JButton("Weekly  View");
+		btnWV.setFont(new Font("Tahoma", Font.PLAIN, 21));
+		btnWV.setBounds(94, 198, 163, 45);
 		add(btnWV);
 		
-		JButton button_1 = new JButton("Daily View");
-		button_1.setBounds(94, 240, 138, 41);
-		add(button_1);
+		JButton btnDV = new JButton("Daily View");
+		btnDV.setBounds(94, 240, 163, 50);
+		add(btnDV);
 		
 		JButton button_2 = new JButton("Event");
 		button_2.setBounds(397, 198, 115, 29);
@@ -63,6 +57,9 @@ public class MenuScreen extends JPanel {
 
 	public void setWV(WeeklyView wV) {
 		WV = wV;
+	}
+	public void actionListener(ActionEvent arg0) {
+		
 	}
 
 }
