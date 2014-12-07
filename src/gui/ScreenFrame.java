@@ -1,8 +1,6 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
+import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -14,30 +12,17 @@ public class ScreenFrame extends JFrame {
 
 	public static final String LOGIN = "Login";
 	public static final String MENUSCREEN = "MenuScreen";
-	
+	public static final String WEEKLYVIEW = "WeeklyView";
+	public static final String DAILYVIEW = "DailyView";
 	private JPanel contentPane;
-	
-	private final Login login = new Login();
-	private final MenuScreen MS = new MenuScreen();
+	private Login login = new Login();
+	public static MenuScreen MS = new MenuScreen();
+	private WeeklyView WV = new WeeklyView();
+	private DailyView DV = new DailyView();
 
-	CardLayout c;
+	public CardLayout c;
 
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ScreenFrame frame = new ScreenFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -51,7 +36,18 @@ public class ScreenFrame extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 
 		//Adding panels to contentpane
-		contentPane.add(login, "Login");
+		
+//		login = new Login();
+//		contentPane.add(login, LOGIN);
+
+		MS = new MenuScreen();
+		contentPane.add(MS, MENUSCREEN);
+		
+		DV = new DailyView();
+		contentPane.add(DV, DAILYVIEW);
+		
+		WV = new WeeklyView();
+		contentPane.add(WV, "WeeklyView");
 	}
 
 
@@ -59,8 +55,21 @@ public class ScreenFrame extends JFrame {
 	public Login getLogin() {
 		return login;
 	}
+	
+	public MenuScreen getMS() {
+		return MS;
+	}
+
+	public WeeklyView getWV() {
+		return WV;
+	}
+
+	public DailyView getDV() {
+		return DV;
+	}
+
 	public void show(String card) {
 		c.show(getContentPane(), card);
 	}
-
+	
 }

@@ -2,17 +2,27 @@ package gui;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import java.awt.CardLayout;
 import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.JTextField;
+
+import logic.ActionHandlers;
+import logic.ActionHandlers.LoginActionListener;
+
 public class Login extends JPanel {
 	private JPasswordField passwordField;
+	private JButton btnLogin = new JButton();
+	private JTextField UserNameField;
+
 
 	/**
 	 * Create the panel.
@@ -21,41 +31,72 @@ public class Login extends JPanel {
 		setLayout(null);
 		
 		JLabel lblUsername = new JLabel("Username:");
-		lblUsername.setBounds(208, 237, 148, 26);
+		lblUsername.setBounds(376, 240, 148, 26);
 		add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(208, 299, 137, 26);
+		lblPassword.setBounds(386, 299, 137, 26);
 		add(lblPassword);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(377, 237, 163, 27);
-		add(textArea);
+		UserNameField = new JTextField();
+		UserNameField.setBounds(582, 234, 186, 32);
+		add(UserNameField);
+		UserNameField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(377, 296, 165, 32);
+		passwordField.setBounds(582, 296, 186, 32);
 		add(passwordField);
-		
-		JButton btnLogin = new JButton("Login");
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		btnLogin.setBounds(399, 426, 141, 35);
-		add(btnLogin);
 		
 		JLabel label = new JLabel("Including your own personal events!");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		label.setBounds(239, 153, 392, 48);
+		label.setBounds(481, 146, 392, 55);
 		add(label);
 		
 		JLabel label_1 = new JLabel("Welcome to CBS Calendar!");
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		label_1.setBounds(294, 100, 296, 64);
+		label_1.setBounds(525, 87, 296, 64);
 		add(label_1);
+		
+		JButton btnLogin_1 = new JButton("Login");
+		btnLogin_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent l) {
+				
+			ActionHandlers.LoginActionListener();
+			}
+		});
+		btnLogin_1.setBounds(606, 410, 141, 35);
+		add(btnLogin_1);
 
+	}
+	
+	public JTextField getUserNameField() {
+		return UserNameField;
+	}
+
+	public void setUserNameField(JTextField userNameField) {
+		UserNameField = userNameField;
+	}
+
+	public JPasswordField getPasswordField() {
+		return passwordField;
+	}
+
+	public void setPasswordField(JPasswordField passwordField) {
+		this.passwordField = passwordField;
+	}
+
+	public JButton getBtnLogin() {
+		return btnLogin;
+	}
+
+	public void setBtnLogin(JButton btnLogin) {
+		this.btnLogin = btnLogin;
+	}
+
+	public void addActionListener(ActionListener l) {
+		btnLogin.addActionListener(l);
+		
 	}
 }
 

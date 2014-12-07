@@ -11,6 +11,17 @@ public class getCalendarDay {
 	public static int weekDay = calendar.get(Calendar.DAY_OF_WEEK_IN_MONTH);
 	public static int year = calendar.get(Calendar.YEAR);
 	public static int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+	public static int WeekofYear = calendar.get(Calendar.WEEK_OF_YEAR);
+	
+	
+	public static int getWeekofYear() {
+		return WeekofYear;
+	}
+
+	public static void setWeekofYear(int weekofYear) {
+		WeekofYear = weekofYear;
+	}
+
 	public static Calendar getCalendar() {
 		return calendar;
 	}
@@ -41,7 +52,6 @@ public class getCalendarDay {
 	
 	
 	
-
 	public static void setCalendar(Calendar calendar) {
 		getCalendarDay.calendar = calendar;
 	}

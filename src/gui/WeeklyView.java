@@ -52,10 +52,16 @@ public class WeeklyView extends JPanel {
 		JPanel Menu_container = new JPanel();
 		Menu_container.setLocation(390, 56);
 		Menu_container.setMinimumSize(new Dimension(1366, 100));
-		Menu_container.setSize(new Dimension(577, 56));
+		Menu_container.setSize(new Dimension(655, 56));
 		add(Menu_container);
 
 		JButton btnNewButton = new JButton("Day View");
+		btnNewButton.setBounds(21, 6, 141, 35);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		Menu_container.setLayout(null);
 		btnNewButton
 		.setIcon(new ImageIcon(
 				WeeklyView.class
@@ -63,16 +69,19 @@ public class WeeklyView extends JPanel {
 		Menu_container.add(btnNewButton);
 
 		JButton btnPrevious = new JButton("Previous");
+		btnPrevious.setBounds(165, 6, 133, 35);
 		btnPrevious
 		.setIcon(new ImageIcon(
 				WeeklyView.class
 				.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed.gif")));
 		Menu_container.add(btnPrevious);
 
-		JMenuItem mntmNewMenuItem = new JMenuItem(String.valueOf(getCalendarDay.getYear()));
+		JMenuItem mntmNewMenuItem = new JMenuItem(String.valueOf(getCalendarDay.getWeekofYear())); //getCalendarDay.getCurrentDay() + "." + getCalendarDay.getCurrentMonth() + " - " + getCalendarDay.getYear()));
+		mntmNewMenuItem.setBounds(347, 3, 85, 38);
 		Menu_container.add(mntmNewMenuItem);
 
 		JButton btnNext = new JButton("Next");
+		btnNext.setBounds(466, 6, 97, 35);
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -82,6 +91,10 @@ public class WeeklyView extends JPanel {
 				WeeklyView.class
 				.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed-rtl.gif")));
 		Menu_container.add(btnNext);
+		
+		JLabel lblWeek = new JLabel("Week");
+		lblWeek.setBounds(319, 6, 97, 35);
+		Menu_container.add(lblWeek);
 
 		table_2 =  new JTable();
 		table_2.setBounds(339, 128, 990, 513);

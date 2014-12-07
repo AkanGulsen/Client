@@ -1,7 +1,5 @@
 import logic.ActionHandlers;
 import logic.ConnectToServer;
-import gui.Login;
-import gui.ScreenCal;
 import gui.ScreenFrame;
 
 public class Main {
@@ -12,7 +10,7 @@ public class Main {
 //		ConnectToServer ClientServerConnect = new ConnectToServer();
 //		ClientServerConnect.ServerConnect();
 		
-		new logic.ActionHandlers().run();
+		new ActionHandlers().run();
 		
 		
 		
