@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.CardLayout;
+import java.awt.Rectangle;
+import java.awt.Dimension;
 
 public class ScreenFrame extends JFrame {
 
@@ -20,26 +22,13 @@ public class ScreenFrame extends JFrame {
 	private final MenuScreen MenuScreen = new MenuScreen();
 	CardLayout c;
 
-	/*
-	 * public static final String LOGIN = "login"; public static final String
-	 * MENUSCREEN = "MenuScreen"; public static final String WEEKLYVIEW =
-	 * "WeeklyView"; public static final String DAILYVIEW = "DailyView";
-	 * 
-	 * private JPanel contentPane;
-	 * 
-	 * public static String login = new LogIn(); public static MenuScreen MS =
-	 * new MenuScreen(); private WeeklyView WV = new WeeklyView(); private
-	 * DailyView DV = new DailyView();
-	 * 
-	 * 
-	 * 
-	 * CardLayout c;
-	 */
+
 
 	/**
 	 * Create the frame.
 	 */
 	public ScreenFrame() {
+		setSize(new Dimension(1500, 780));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1197, 745);
 		contentPane = new JPanel();
@@ -58,12 +47,16 @@ public class ScreenFrame extends JFrame {
 	public LogIn getLogin() {
 		return login;
 	}
+	
+	public MenuScreen getMenuScreen(){
+		return MenuScreen;
+	}
 
-	public WeeklyView getWeekView() {
+	public WeeklyView getWeeklyView() {
 		return WeeklyView;
 	}
 
-	public DailyView getDayView() {
+	public DailyView getDailyView() {
 		return DailyView;
 	}
 

@@ -16,16 +16,28 @@ import logic.getCalendarDay;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 @SuppressWarnings("serial")
 public class WeeklyView extends JPanel {
-	private JTable table;
-	private JTable table_1;
+	private final JPanel QOTD_container = new JPanel();
+	private final JLabel lblQOTDHeadline = new JLabel("Quote Of The Day:");
+	private final JLabel lblQOTD = new JLabel("QOTD");
+	private final JPanel Menu_container = new JPanel();
+	public JButton getBtnNewButton() {
+		return btnNewButton;
+	}
+
+	private final JButton btnNewButton = new JButton("Day View");
+	private final JButton btnPrevious = new JButton("Previous");
+	private final JButton btnNext = new JButton("Next");
+
 
 	// Week of QOTD skal sættes korrekt
 	private String Week;
 	private String QOTD;
 	private JTable table_2;
 	private JTable Event;
+	private final JLabel label = new JLabel("");
 
 	/**
 	 * Create the panel.
@@ -35,27 +47,30 @@ public class WeeklyView extends JPanel {
 		setLayout(null);
 
 		// QOTD contianer and with QOTD labels
-		JPanel QOTD_container = new JPanel();
+		
 		QOTD_container.setBounds(0, 5, 1366, 45);
 		QOTD_container.setPreferredSize(new Dimension(1366, 25));
 		add(QOTD_container);
+		QOTD_container.setLayout(null);
+		lblQOTDHeadline.setBounds(564, 5, 176, 26);
 
-		JLabel lblQOTDHeadline = new JLabel("Quote Of The Day:");
+		
 		QOTD_container.add(lblQOTDHeadline);
+		lblQOTD.setBounds(745, 5, 56, 26);
 
-		JLabel lblQOTD = new JLabel(QOTD);
+		
 		lblQOTD.setAlignmentX(Component.CENTER_ALIGNMENT);
 		QOTD_container.add(lblQOTD);
 		lblQOTD.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
 
 		// Menu container inlcuding next, previous & dayview buttons
-		JPanel Menu_container = new JPanel();
+		
 		Menu_container.setLocation(390, 56);
 		Menu_container.setMinimumSize(new Dimension(1366, 100));
 		Menu_container.setSize(new Dimension(655, 56));
 		add(Menu_container);
 
-		JButton btnNewButton = new JButton("Day View");
+		
 		btnNewButton.setBounds(21, 6, 141, 35);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -68,8 +83,7 @@ public class WeeklyView extends JPanel {
 				.getResource("/com/sun/java/swing/plaf/windows/icons/DetailsView.gif")));
 		Menu_container.add(btnNewButton);
 
-		JButton btnPrevious = new JButton("Previous");
-		btnPrevious.setBounds(165, 6, 133, 35);
+				btnPrevious.setBounds(165, 6, 133, 35);
 		btnPrevious
 		.setIcon(new ImageIcon(
 				WeeklyView.class
@@ -80,7 +94,6 @@ public class WeeklyView extends JPanel {
 		mntmNewMenuItem.setBounds(347, 3, 85, 38);
 		Menu_container.add(mntmNewMenuItem);
 
-		JButton btnNext = new JButton("Next");
 		btnNext.setBounds(466, 6, 97, 35);
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -108,27 +121,15 @@ public class WeeklyView extends JPanel {
 		lblEvents.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblEvents.setBounds(115, 86, 69, 20);
 		add(lblEvents);
-
-		for (int i = 0; i > 7; i++) {
-			try {
-				JPanel panel_2 = new JPanel();
-				panel_2.setSize(new Dimension(1366, 0));
-
-				JLabel lblDay = new JLabel("Sunday 30");
-				lblDay.setSize(new Dimension(1366, 20));
-				panel_2.add(lblDay);
-
-				table = new JTable();
-				table.setPreferredSize(new Dimension(1366, 0));
-				table.setRowMargin(2);
-				panel_2.add(table);
-
-				JScrollBar scrollBar = new JScrollBar();
-				panel_2.add(scrollBar);
-
-			} catch (Exception e) {
-				System.out.println("fejl i loop til oprettelse af dage");
-			}
-		}
+		label.setIcon(new ImageIcon(WeeklyView.class.getResource("/Images/MetalBackground.jpg")));
+		label.setBounds(0, 5, 1366, 763);
+		
+		add(label);
+		
+		
 	}
+	public void addActionListener(ActionListener l) {
+			btnNewButton.addActionListener(l);
+			
+		}
 }

@@ -18,10 +18,11 @@ import logic.getCalendarDay;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Cursor;
+import javax.swing.ImageIcon;
 
 public class DailyView extends JPanel {
 	private JTable table;
-
+	private final JButton button = new JButton("Week View");
 	/**
 	 * Create the panel.
 	 */
@@ -46,7 +47,6 @@ public class DailyView extends JPanel {
 		panel_1.setBounds(382, 66, 735, 56);
 		add(panel_1);
 		String test = "";
-		JButton button = new JButton("Week View");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -81,10 +81,17 @@ public class DailyView extends JPanel {
 		table.setBounds(382, 144, 863, 660);
 		add(table);
 		
-		JLabel Dato = new JLabel(String.valueOf(getCalendarDay.getCurrentDay() + "." + getCalendarDay.getCurrentMonth() + " - " + getCalendarDay.getYear()));
-		Dato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		Dato.setBounds(152, 144, 227, 44);
-		add(Dato);
+		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon(DailyView.class.getResource("/Images/MetalBackground.jpg")));
+		label_2.setBounds(0, 5, 1333, 846);
+		add(label_2);
  
+	}
+	public JButton getButton() {
+		return button;
+	}
+	public void addActionListener(ActionListener l) {
+		button.addActionListener(l);
+		
 	}
 }
